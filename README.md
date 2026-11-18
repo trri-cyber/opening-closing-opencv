@@ -57,32 +57,61 @@ Compare the original, opened, and closed images.
 
 ## Developed By
 
-**Name:** ____________________________
+**Name:** Rishab P Doshi
 
-**Register No:** ______________________
+**Register No:** 212224240134
 
 ## Output
+## PROGRAM
+```
+
+import cv2
+import numpy as np
+import matplotlib.pyplot as plt
+
+img = cv2.imread("images.jpg", 0)
+
+kernel = np.ones((5, 5), np.uint8)
+
+opening = cv2.morphologyEx(img, cv2.MORPH_OPEN, kernel)
+
+closing = cv2.morphologyEx(img, cv2.MORPH_CLOSE, kernel)
+
+plt.figure(figsize=(12, 4))
+
+plt.subplot(1, 3, 1)
+plt.imshow(img, cmap="gray")
+plt.title("Original")
+plt.axis("off")
+
+plt.subplot(1, 3, 2)
+plt.imshow(opening, cmap="gray")
+plt.title("Opening")
+plt.axis("off")
+
+plt.subplot(1, 3, 3)
+plt.imshow(closing, cmap="gray")
+plt.title("Closing")
+plt.axis("off")
+
+plt.tight_layout()
+plt.show()
+
+```
 
 ### Original Image
 
-- The input image is displayed.
-- The image serves as the source for morphological processing.
+<img width="277" height="485" alt="image" src="https://github.com/user-attachments/assets/4fb4170e-e4e5-48f0-9464-26fc7838e486" />
+
 
 ### Opening Operation
+<img width="280" height="482" alt="image" src="https://github.com/user-attachments/assets/75a9ff7d-3e6c-4469-8124-1d978a1a07c4" />
 
-- Original image is displayed.
-- Opened image is displayed.
-- Small foreground noise is removed.
-- Thin protrusions and isolated pixels are eliminated.
-- Object boundaries become smoother.
 
 ### Closing Operation
 
-- Original image is displayed.
-- Closed image is displayed.
-- Small holes and gaps inside objects are filled.
-- Broken regions are connected.
-- Object boundaries become more continuous.
+<img width="290" height="478" alt="image" src="https://github.com/user-attachments/assets/88ec63c1-6626-450a-9ae3-c98dc36c143a" />
+
 
 ## Applications
 
